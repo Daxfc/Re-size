@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen width</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+    }
+    .info {
+      margin-top: 50px;
+      font-size: 24px;
+    }
+    #screenWidth {
+      font-size: 30px;
+      font-weight: bold;
+      color: #4CAF50;
+    }
+    span{
+      color:darkred;
+      text-decoration:underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Screen Width Detector By <span>(Dax/Mazen)</span></h1>
+  </header>
+  <main>
+    <section class="info">
+      <h2>Your Screen Width:</h2>
+      <p id="screenWidth">Loading...</p>
+    </section>
+  </main>
+  <script>
+    function updateScreenWidth() {
+      
+      const widthPx = window.innerWidth;
+      
+      const widthCm = (widthPx / 96) * 2.54;
+      
+      const widthCmFormatted = widthCm.toFixed(2);
+      
+      document.getElementById('screenWidth').textContent = `${widthPx}px (~ ${widthCmFormatted} cm)`;
+    }
+    
+    
+    updateScreenWidth();
+    window.addEventListener('resize', updateScreenWidth);
+  </script>
+</body>
+</html>
